@@ -1,7 +1,11 @@
 <template>
+  <img alt="Vue logo" src="./assets/logo.png">
+  <h1>CPS 831 Term Project</h1>
+  <h3>By: Alton Dulinen, Aayush Thapa, Cindy Fang</h3>
   <nav>
     <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <router-link to="/add">Add</router-link> |
+    <router-link to="/ledger">Ledger</router-link>
   </nav>
   <router-view/>
 </template>
