@@ -39,7 +39,7 @@ async function main() {
         const network = await gateway.getNetwork('mychannel');
 
         // Get the contract from the network.
-        const contract = network.getContract('fabcar');
+        const contract = network.getContract('Application');
 
         const result = await contract.evaluateTransaction('queryAllHouses');
         console.log(`Transaction has been evaluated, result is: ${result.toString()}`);

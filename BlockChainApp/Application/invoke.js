@@ -37,7 +37,7 @@ async function main(username, id, price, location, type, owner) {
         const network = await gateway.getNetwork('mychannel');
 
         // Get the contract from the network.
-        const contract = network.getContract('fabcar');
+        const contract = network.getContract('Application');
         await contract.submitTransaction('createHouse', id, price, location, type, owner);
         console.log('Transaction has been submitted');
 

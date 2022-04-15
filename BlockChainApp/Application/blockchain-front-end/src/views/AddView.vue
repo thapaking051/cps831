@@ -1,6 +1,6 @@
 <template>
   <div class="add">
-    <h1>Add New Car</h1>
+    <h1>Add New House</h1>
      <el-form :inline="true" class="demo-form-inline">
        <el-form-item label="Username:">
         <el-input v-model="this.username" />
