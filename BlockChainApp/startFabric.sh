@@ -17,15 +17,11 @@ if [ "$CC_SRC_LANGUAGE" = "javascript" ]; then
 	CC_SRC_PATH="../chaincode/Application"
 else
 	echo The chaincode language ${CC_SRC_LANGUAGE} is not supported by this script
-	echo Supported chaincode languages are: javascript
 	exit 1
 fi
 
 # clean out any old identites in the wallets
-rm -rf javascript/wallet/*
-rm -rf java/wallet/*
-rm -rf typescript/wallet/*
-rm -rf go/wallet/*
+rm -rf Application/wallet/*
 
 # launch network; create channel and join peer to channel
 pushd ../test-network
@@ -46,7 +42,7 @@ Our application is available with an accompanying web app that provies a UI for 
 Follow the instructions for the programming language of your choice:
 
 Start by changing into the "Application" directory:
-  cd javascript
+  cd Application
 
 Next, install all required packages:
   npm install
@@ -55,12 +51,19 @@ Then run the following applications to enroll the admin user which will be used 
 the other applications to interact with the deployed contract:
   node enrollAdmin
 
-You can run the invoke application as follows. By default, the invoke application will
-create a new car, but you can update the application to submit other transactions:
-  node invoke
+You can then start up the backend of our web app:
+  node express
 
-You can run the query application as follows. By default, the query application will
-return all cars, but you can update the application to evaluate other transactions:
-  node query
+To start the front-end start by changing to the "blockchain-front-end" directory:
+  cd blockchain-front-end
+
+Once again, install all required packages:
+  npm install
+
+Start up the front-end:
+  npm run serve
+
+You can find the accompanying web-app at this address:
+  http://localhost:8080/
 
 EOF

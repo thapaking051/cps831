@@ -1,15 +1,10 @@
-/*
- * Copyright IBM Corp. All Rights Reserved.
- *
- * SPDX-License-Identifier: Apache-2.0
- */
-
 'use strict';
 
 const { Contract } = require('fabric-contract-api');
 
 class Application extends Contract {
 
+    // creates the initial ledger
     async initLedger(ctx) {
         const houses = [
             {
@@ -39,6 +34,7 @@ class Application extends Contract {
         }
     }
 
+    // adds a house to the ledger
     async createHouse(ctx, houseID, price, location, type, owner) {
 
         const house = {
@@ -52,6 +48,7 @@ class Application extends Contract {
         await ctx.stub.putState(houseID, Buffer.from(JSON.stringify(house)));
     }
 
+    // returns the ledger in JSON format
     async queryAllHouses(ctx) {
         const startKey = '';
         const endKey = '';
@@ -70,6 +67,7 @@ class Application extends Contract {
         return JSON.stringify(allResults);
     }
 
+    // changes the specified value in the leedger
     async changeHouseValues(ctx, houseID, price, location, type, owner) {
 
         const houseAsBytes = await ctx.stub.getState(houseID);
