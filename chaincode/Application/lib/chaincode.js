@@ -70,7 +70,7 @@ class Application extends Contract {
         return JSON.stringify(allResults);
     }
 
-    async changHouseValues(ctx, houseID, price, location, type, owner) {
+    async changeHouseValues(ctx, houseID, price, location, type, owner) {
 
         const houseAsBytes = await ctx.stub.getState(houseID);
         if (!houseAsBytes || houseAsBytes.length === 0) {

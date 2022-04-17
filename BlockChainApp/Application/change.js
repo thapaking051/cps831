@@ -33,7 +33,7 @@ async function main(username, id, price, location, type, owner) {
         // Get the contract from the network.
         const contract = network.getContract('Application');
 
-        await contract.submitTransaction('changHouseValues', id, price, location, type, owner);
+        await contract.submitTransaction('changeHouseValues', id, price, location, type, owner);
         console.log('Transaction has been submitted');
 
         // Disconnect from the gateway.
